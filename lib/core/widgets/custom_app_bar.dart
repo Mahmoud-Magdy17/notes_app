@@ -14,6 +14,11 @@ class CustomAppBar extends StatelessWidget {
         const Spacer(),
         icon != null
             ? IconButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                    Colors.white.withOpacity(0.05),
+                  ),
+                ),
                 onPressed: onPressed ?? () {},
                 icon: icon != null
                     ? const Icon(
