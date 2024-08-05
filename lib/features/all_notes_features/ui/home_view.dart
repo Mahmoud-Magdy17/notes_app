@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/features/all_notes_features/ui/widgets/custom_notes_builder.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,12 @@ class HomePage extends StatelessWidget {
         title: const Text(
           "Notes",
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: CustomNotesBuilder(),
     );

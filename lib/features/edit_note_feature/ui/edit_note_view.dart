@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EditNotePage extends StatelessWidget {
-  const EditNotePage({super.key});
+class EditNoteView extends StatelessWidget {
+  const EditNoteView({super.key});
 
   @override
   Widget build(BuildContext context) {
