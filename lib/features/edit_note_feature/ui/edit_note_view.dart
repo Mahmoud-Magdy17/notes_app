@@ -13,12 +13,15 @@ class EditNoteView extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(
-            title: "Edit ${note.title} Note",
+            title: "Edit Note",
             back: true,
-            icon:const  Icon(Icons.arrow_forward),
+            icon: const Icon(Icons.arrow_forward),
             onPressed: () {},
           ),
-          const EditNoteForm()
+          EditNoteForm(
+            title: note.title,
+            content: note.content,
+          )
         ],
       ),
     );
