@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/core/constants/colors.dart';
 import 'package:notes_app/features/all_notes_features/ui/widgets/custom_notes_builder.dart';
 
 import '../../../core/models/note_model.dart';
@@ -14,6 +15,8 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
+        foregroundColor: Colors.black,
         onPressed: () {
           showModalBottomSheet(
               shape: const RoundedRectangleBorder(
@@ -32,7 +35,7 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(
-            title: 'Text',
+            title: 'Notes',
             icon: const Icon(Icons.search),
             onPressed: () {},
           ),

@@ -8,21 +8,30 @@ class AddNoteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const CustomTextFormField(
-            hint: 'Title',
-          ),
-          const CustomTextFormField(
-            hint: 'Content',
-            maxLines: 4,
-          ),
-          CustomButton(
-            onTap: () {},
-            text: 'Add',
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const CustomTextFormField(
+              hint: 'Title',
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const CustomTextFormField(
+              hint: 'Content',
+              maxLines: 4,
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            CustomButton(
+              onTap: () {},
+              text: 'Add',
+            ),
+          ],
+        ),
       ),
     );
   }

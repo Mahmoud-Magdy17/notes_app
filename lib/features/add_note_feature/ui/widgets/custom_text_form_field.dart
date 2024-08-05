@@ -9,14 +9,15 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: maxLines ?? 1,
-      decoration: const InputDecoration(
-        enabledBorder: OutlineInputBorder(
+      decoration: InputDecoration(
+        hintText: hint,
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.white,
           ),
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
             color: kPrimaryColor,
