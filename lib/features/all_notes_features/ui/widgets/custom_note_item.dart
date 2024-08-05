@@ -30,7 +30,7 @@ class CustomNoteItem extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: TextStyle(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.6),
               ),
             ),
           ),

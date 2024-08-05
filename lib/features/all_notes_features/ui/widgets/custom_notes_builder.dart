@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/core/models/note_model.dart';
 
-import 'note_item.dart';
+import 'custom_note_item.dart';
 
 class CustomNotesBuilder extends StatelessWidget {
   const CustomNotesBuilder({super.key, required this.notes});
