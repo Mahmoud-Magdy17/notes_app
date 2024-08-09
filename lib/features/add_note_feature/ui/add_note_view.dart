@@ -8,18 +8,47 @@ class AddNoteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+      child: AddNoteForm(),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  String? title;
+  String? subTitle;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const CustomTextFormField(
+            CustomTextFormField(
+              onSaved: (val) {
+                title = val;
+              },
               hint: 'Title',
             ),
             const SizedBox(
               height: 16,
             ),
-            const CustomTextFormField(
+            CustomTextFormField(
+              onSaved: (val) {
+                subTitle = val;
+              },
               hint: 'Content',
               maxLines: 4,
             ),
@@ -27,7 +56,15 @@ class AddNoteView extends StatelessWidget {
               height: 24,
             ),
             CustomButton(
-              onTap: () {},
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  setState(() {
+                    autoValidateMode = AutovalidateMode.always;
+                  });
+                }
+              },
               text: 'Add',
             ),
           ],
