@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/models/note_model.dart';
+import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
 import 'package:notes_app/features/edit_note_feature/ui/edit_note_view.dart';
 
 import '../../../../core/functions/navigate_to.dart';
@@ -15,9 +17,9 @@ class CustomNoteItem extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-        decoration: const BoxDecoration(
-          color: Color(0xffffcc80),
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+        decoration: BoxDecoration(
+          color: Color(note.color),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -31,7 +33,11 @@ class CustomNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: InkWell(
-                onTap: () {},
+                onTap: () {
+                  note.delete();
+                  debugPrint("removed");
+                  BlocProvider.of<AllNotesCubit>(context).allNotes();
+                },
                 child: const Icon(
                   Icons.delete,
                   color: Colors.black,
