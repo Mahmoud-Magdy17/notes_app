@@ -4,7 +4,7 @@ import 'package:notes_app/core/models/note_model.dart';
 import 'package:notes_app/core/widgets/custom_app_bar.dart';
 import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
 
-import '../../add_note_feature/ui/widgets/custom_text_form_field.dart';
+import 'custom_text_form_field.dart';
 
 class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key, required this.note});
