@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/constants/constants.dart';
-import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
 import 'package:notes_app/features/all_notes_features/ui/widgets/custom_notes_builder.dart';
 
 import '../../../core/models/note_model.dart';
@@ -44,11 +42,8 @@ class HomeView extends StatelessWidget {
             onPressed: () {},
           ),
           Expanded(
-            child: BlocProvider(
-              create: (context) => AllNotesCubit(),
-              child: CustomNotesBuilder(
-                notes: notes,
-              ),
+            child: CustomNotesBuilder(
+              notes: notes,
             ),
           ),
         ],
