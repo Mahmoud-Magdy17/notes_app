@@ -9,8 +9,8 @@ List<NoteModel> buildTempNote() {
       NoteModel(
         title: "Note $i",
         content: "this is note $i",
-        creationDate: DateTime.now(),
-        color: Colors.blue,
+        creationDate: DateTime.now().toString(),
+        color: Colors.blue.value,
       ),
     );
   }
