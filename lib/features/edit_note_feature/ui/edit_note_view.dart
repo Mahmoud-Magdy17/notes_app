@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/models/note_model.dart';
 import 'package:notes_app/core/widgets/custom_app_bar.dart';
 import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
+import 'package:notes_app/features/edit_note_feature/ui/widgets/colors_list_view.dart';
 
-import 'custom_text_form_field.dart';
+import '../../add_note_feature/ui/widgets/custom_text_form_field.dart';
 
 class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key, required this.note});
@@ -29,6 +30,7 @@ class _EditNoteViewState extends State<EditNoteView> {
             onPressed: () {
               widget.note.title = title ?? widget.note.title;
               widget.note.content = content ?? widget.note.content;
+
               widget.note.save();
               Navigator.pop(context);
               BlocProvider.of<AllNotesCubit>(context).allNotes();
@@ -55,7 +57,11 @@ class _EditNoteViewState extends State<EditNoteView> {
                   },
                   hint: widget.note.content,
                   maxLines: 4,
-                )
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                ColorsListView(note: widget.note)
               ],
             ),
           )

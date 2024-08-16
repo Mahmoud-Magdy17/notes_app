@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/models/note_model.dart';
 import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
-import 'package:notes_app/features/add_note_feature/ui/widgets/edit_note_view.dart';
+import 'package:notes_app/features/edit_note_feature/ui/edit_note_view.dart';
 
 import '../../../../core/functions/navigate_to.dart';
 
