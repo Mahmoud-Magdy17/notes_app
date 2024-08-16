@@ -12,7 +12,7 @@ class ColorsListView extends StatefulWidget {
 }
 
 class _ColorsListViewState extends State<ColorsListView> {
-  int currentIndex = 0;
+  late int currentIndex;
   @override
   void initState() {
     currentIndex = kListOfColos.lastIndexOf(Color(widget.note.color));
