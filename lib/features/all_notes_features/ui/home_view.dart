@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/constants/constants.dart';
+import 'package:notes_app/features/all_notes_features/logic/cubit/all_notes_cubit.dart';
 import 'package:notes_app/features/all_notes_features/ui/widgets/custom_notes_builder.dart';
 
 import '../../../core/models/note_model.dart';
@@ -19,17 +21,18 @@ class HomeView extends StatelessWidget {
         foregroundColor: Colors.black,
         onPressed: () {
           showModalBottomSheet(
-              isScrollControlled: true,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                ),
+            isScrollControlled: true,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8),
+                topRight: Radius.circular(8),
               ),
-              context: context,
-              builder: (ctx) {
-                return const AddNoteView();
-              });
+            ),
+            context: context,
+            builder: (ctx) {
+              return const AddNoteView();
+            },
+          );
         },
         child: const Icon(Icons.add),
       ),
@@ -41,8 +44,11 @@ class HomeView extends StatelessWidget {
             onPressed: () {},
           ),
           Expanded(
-            child: CustomNotesBuilder(
-              notes: notes,
+            child: BlocProvider(
+              create: (context) => AllNotesCubit(),
+              child: CustomNotesBuilder(
+                notes: notes,
+              ),
             ),
           ),
         ],
